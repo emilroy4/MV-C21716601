@@ -1,6 +1,5 @@
 package c21716601;
 
-import processing.core.PConstants;
 import processing.core.PApplet;
 
 public class nico {
@@ -11,6 +10,9 @@ public class nico {
     public nico(rockstar nico, PApplet applet) {
         this.nico = nico;
         this.applet = applet;
+    }
+
+    public nico(rockstar rockstar) {
     }
 
     public float rotationAngle = 0.0f;
