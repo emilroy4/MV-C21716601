@@ -19,7 +19,7 @@ public class us {
             stars[i] = us.random(-us.width, us.width);
         }
 
-        us.stroke(400);
+        us.stroke(4);
         for (int i = 0; i < stars.length; i++) {
             float speed = us.map(us.getSmoothedAmplitude(), 0, 1, 1, 5);
             stars[i] += speed;

@@ -96,6 +96,7 @@ public class rockstar extends Visual {
 
             case 5:
             {
+                er.render();
                 us.render();
                 break;
             }
