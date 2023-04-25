@@ -20,7 +20,7 @@ public class rockstar extends Visual {
     {
         startMinim();
 
-        loadAudio("Tritonal - Getaway (ft. Angel Taylor) (Koven Remix).mp3");
+        loadAudio("heroplanet.mp3");
 
         er = new emil(this);
         //bakht = new bakht(this);
