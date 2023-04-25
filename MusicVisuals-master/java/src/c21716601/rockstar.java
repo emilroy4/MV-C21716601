@@ -15,7 +15,7 @@ public class rockstar extends Visual {
 
     public void settings()
     {
-        size(800, 800, P3D);
+        size(1000, 800, P3D);
 
     }
 
