@@ -1,5 +1,6 @@
 package c21716601;
 
+import processing.core.PApplet;
 
 public class nico {
 
@@ -8,8 +9,9 @@ public class nico {
     public nico(rockstar nico) {
         this.nico = nico;
     }
-
+    
     public float rotationAngle = 0.0f;
+    private final float TWO_PI = 2 * PApplet.PI;
 
     public void render() {
         nico.noFill();
@@ -59,8 +61,54 @@ public class nico {
             nico.popMatrix();
         }
 
+        // Draw frequency waves on the left and right side of the screen
+        nico.noFill();
+        nico.strokeWeight(2);
+
+        float[] bands = nico.getSmoothedBands();
+        int waveResolution = 100;
+        int waveHeight = 50;
+        int numWaves = 5;
+        int waveSpacing = 50;
+
+        // Draw waves on the left side of the screen
+        nico.pushMatrix();
+        nico.translate(-nico.width / 2, 0);
+        for (int w = 0; w < numWaves; w++) {
+            nico.stroke(0, 255, 0); // Green stroke color
+            nico.beginShape();
+            for (int i = 0; i <= waveResolution; i++) {
+                float x = i * nico.width / waveResolution;
+                float y = nico.height / 2 + sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+                nico.vertex(x, y);
+            }
+            nico.endShape();
+            nico.translate(0, waveSpacing);
+        }
+        nico.popMatrix();
+
+        // Draw waves on the right side of the screen
+        nico.pushMatrix();
+        nico.translate(nico.width / 2, 0);
+        for (int w = numWaves; w < 2 * numWaves; w++) {
+            nico.stroke(0, 255, 0); // Green stroke color
+            nico.beginShape();
+            for (int i = 0; i <= waveResolution; i++) {
+                float x = i * nico.width / waveResolution;
+                float y = nico.height / 2 + sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+                nico.vertex(x, y);
+            }
+            nico.endShape();
+            nico.translate(0, waveSpacing);
+        }
+        nico.popMatrix();
+
         // Increment rotation angle
         rotationAngle += 0.01f;
+    }
+
+    private int sin(float f) {
+        return 0;
     }
 
 }
