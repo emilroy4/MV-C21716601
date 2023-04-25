@@ -14,7 +14,7 @@ public class nico {
 
     public void render() {
         nico.noFill();
-        nico.camera(0, 100, 200, 0, 0, 0, 1, 0, 0);
+        nico.camera(0, 100, 400, 0, 0, 0, 1, 0, 0);
         nico.translate(0, 0, 0);
         nico.strokeWeight(4);
 
@@ -29,7 +29,7 @@ public class nico {
         nico.popMatrix();
 
         nico.noFill();
-        nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        nico.camera(0, -100, 400, 0, 0, 0, 5, 0, 0);
         nico.translate(0, 0, 0);
         nico.strokeWeight(4);
 
@@ -44,26 +44,20 @@ public class nico {
         nico.popMatrix();
 
         nico.noFill();
-        nico.camera(0, 0, 200, 0, 0, 0, 5, 0, 0);
+        nico.camera(0, 0, 400, 0, 0, 0, 5, 0, 0);
         nico.translate(0, 0, 0);
         nico.strokeWeight(2);
 
         float[] b2 = nico.getSmoothedBands();
         for (int i = 0; i < b2.length; i++) {
-            float c = nico.map(i, 0, b2.length, 0, 360); // Map the index to an angle
-            float r = size + (b2[i] * 0.5f); // Calculate the radius of the circle
-
-            // Calculate the position of the dot using polar coordinates
-            float x = r * nico.cos(nico.radians(c));
-            float y = r * nico.sin(nico.radians(c));
-
+            //float c = PApplet.map(i, 255, b2.length, 50, 150);
             nico.stroke(0, 255, 0); // Green stroke color
+            float s = b2[i];
 
             // Apply rotation transformation
             nico.pushMatrix();
             nico.rotateZ(rotationAngle);
-            nico.translate(x, y);
-            nico.ellipse(0, 0, 10, 10); // Draw the dot
+            nico.ellipse(0, 0, s / 2, s / 2);
             nico.popMatrix();
         }
 
