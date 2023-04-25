@@ -5,9 +5,12 @@ import ie.tudublin.Visual;
 
 public class rockstar extends Visual {
 
+    
     emil er;
     bakht bakht;
     nico nico;
+    us us;
+
     int v;
 
     public void settings()
@@ -26,6 +29,7 @@ public class rockstar extends Visual {
         er = new emil(this);
         bakht = new bakht(this);
         nico = new nico(this);
+        us = new us(this);
 
         colorMode(RGB);
     }
@@ -88,6 +92,12 @@ public class rockstar extends Visual {
                 er.render(); 
                 nico.render();
 
+                break;
+            }
+
+            case 5:
+            {
+                us.render();
                 break;
             }
 
