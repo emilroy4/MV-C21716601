@@ -4,7 +4,7 @@ import processing.core.PApplet;
 //import ie.tudublin.Visual;
 
 public class emil {
-    
+
     rockstar emil;
 
     public emil(rockstar emil)
@@ -20,7 +20,7 @@ public class emil {
         emil.strokeWeight(4);
 
         float[] b = emil.getSmoothedBands();
-        emil.stroke(150, 250, 130);
+        emil.stroke(0); // black stroke
         float size = b[2];
         emil.circle(0, 0, size);
 
@@ -31,7 +31,7 @@ public class emil {
         emil.strokeWeight(4);
 
         float[] b1 = emil.getSmoothedBands();
-        emil.stroke(150, 250, 130);
+        emil.stroke(255,255,0); // white stroke
         float size1 = b1[2];
         emil.circle(0, 0, size1);
         
@@ -45,7 +45,7 @@ public class emil {
         for(int i=0; i<b2.length ; i++)
         {
             float c = PApplet.map(i, 255, b2.length, 50, 150);
-            emil.stroke(c, 0, 102);
+            emil.stroke(150, 150, 150); // grey stroke
             float s = b2[i];
             emil.pushMatrix();
             emil.circle(0, 0, s);
