@@ -24,7 +24,7 @@ public class rockstar extends Visual {
     {
         startMinim();
 
-        loadAudio("playboi.mp3");
+        loadAudio("rockstar.mp3");
 
         er = new emil(this);
         bakht = new bakht(this);
@@ -90,7 +90,7 @@ public class rockstar extends Visual {
             case 4:
             {
                 er.render(); 
-                
+                nico.render();
 
                 break;
             }

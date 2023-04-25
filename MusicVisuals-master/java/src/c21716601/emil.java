@@ -7,6 +7,9 @@ public class emil {
     
     rockstar emil;
 
+    float smallCircleSize = 0; // initial size of small circle
+    float smallCircleAngle = 0; // initial angle of rotation for small circle
+
     public emil(rockstar emil)
     {
         this.emil = emil;
@@ -48,9 +51,14 @@ public class emil {
             emil.stroke(c, 0, 102);
             float s = b2[i];
             emil.pushMatrix();
-            emil.circle(0, 0, s);
+            emil.translate(0, 0, s/2); // move to center of the small circle
+            emil.rotateZ(PApplet.radians(smallCircleAngle)); // rotate around the Z-axis
+            emil.circle(0, 0, smallCircleSize); // draw the small circle
             emil.popMatrix();
         }
-    }
 
+        // animate and rotate the small circle
+        smallCircleSize = PApplet.map(PApplet.sin(PApplet.radians(smallCircleAngle)), -1, 1, 5, 10);
+        smallCircleAngle += 5;
+    }
 }
