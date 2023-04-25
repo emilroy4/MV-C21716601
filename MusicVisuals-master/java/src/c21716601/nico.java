@@ -4,15 +4,12 @@ import processing.core.PApplet;
 
 public class nico {
 
-    private rockstar nico;
-    private PApplet parent;
+    rockstar nico;
 
-    public nico(rockstar nico, PApplet parent) {
+    public nico(rockstar nico) {
         this.nico = nico;
-        this.parent = parent;
     }
 
-    private final float TWO_PI = PApplet.TWO_PI;
     public float rotationAngle = 0.0f;
 
     public void render() {
@@ -53,6 +50,7 @@ public class nico {
 
         float[] b2 = nico.getSmoothedBands();
         for (int i = 0; i < b2.length; i++) {
+            float c = PApplet.map(i, 255, b2.length, 50, 150);
             nico.stroke(0, 255, 0); // Green stroke color
             float s = b2[i];
 
@@ -62,50 +60,6 @@ public class nico {
             nico.ellipse(0, 0, s / 2, s / 2);
             nico.popMatrix();
         }
-
-        // Draw frequency waves on the left and right side of the screen
-        nico.noFill();
-        nico.strokeWeight(2);
-
-        float[] bands = nico.getSmoothedBands();
-        int waveResolution = 100;
-        int waveHeight = 50;
-        int numWaves = 5;
-        int waveSpacing = 50;
-
-        // Draw waves on the left side of the screen
-        nico.pushMatrix();
-        nico.translate(-nico.width / 2, 0);
-        for (int w = 0; w < numWaves; w++) {
-            nico.stroke(0, 255, 0); // Green stroke color
-            nico.beginShape();
-            for (int i = 0; i <= waveResolution; i++) {
-                float x = i * nico.width / waveResolution;
-                float y = nico.height / 2 + parent.sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
-
-                nico.vertex(x, y);
-            }
-            nico.endShape();
-            nico.translate(0, waveSpacing);
-        }
-        nico.popMatrix();
-
-        // Draw waves on the right side of the screen
-        nico.pushMatrix();
-        nico.translate(nico.width / 2, 0);
-        for (int w = numWaves; w < 2 * numWaves; w++) {
-            nico.stroke(0, 255, 0); // Green stroke color
-            nico.beginShape();
-            for (int i = 0; i <= waveResolution; i++) {
-                float x = i * nico.width / waveResolution;
-                float y = nico.height / 2 + parent.sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
-
-                nico.vertex(x, y);
-            }
-            nico.endShape();
-            nico.translate(0, waveSpacing);
-        }
-        nico.popMatrix();
 
         // Increment rotation angle
         rotationAngle += 0.01f;
