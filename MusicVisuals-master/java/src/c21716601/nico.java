@@ -1,18 +1,12 @@
 package c21716601;
 
-import processing.core.PApplet;
 
 public class nico {
 
     rockstar nico;
-    PApplet applet;
 
-    public nico(rockstar nico, PApplet applet) {
+    public nico(rockstar nico) {
         this.nico = nico;
-        this.applet = applet;
-    }
-
-    public nico(rockstar rockstar) {
     }
 
     public float rotationAngle = 0.0f;
@@ -55,7 +49,6 @@ public class nico {
 
         float[] b2 = nico.getSmoothedBands();
         for (int i = 0; i < b2.length; i++) {
-            float c = applet.map(i, 255, b2.length, 50, 150);
             nico.stroke(0, 255, 0); // Green stroke color
             float s = b2[i];
 
@@ -68,10 +61,6 @@ public class nico {
 
         // Increment rotation angle
         rotationAngle += 0.01f;
-
-        // Use instance of PApplet class to access frameCount variable
-        int frame = applet.frameCount;
-        applet.println("Frame: " + frame);
     }
 
 }
