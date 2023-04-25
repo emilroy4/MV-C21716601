@@ -24,7 +24,7 @@ public class rockstar extends Visual {
     {
         startMinim();
 
-        loadAudio("rockstar.mp3");
+        loadAudio("immortal.mp3");
 
         er = new emil(this);
         bakht = new bakht(this);
