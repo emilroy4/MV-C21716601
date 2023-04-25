@@ -5,7 +5,7 @@ import ie.tudublin.Visual;
 
 public class rockstar extends Visual {
 
-
+    emil er;
 
     int v;
 
@@ -22,9 +22,9 @@ public class rockstar extends Visual {
 
         loadAudio("Tritonal - Getaway (ft. Angel Taylor) (Koven Remix).mp3");
 
-        emil = new emil(this);
-        bakht = new bakht(this);
-        nico = new nico(this);
+        er = new emil(this);
+        //bakht = new bakht(this);
+        //nico = new nico(this);
 
         colorMode(RGB);
     }
@@ -65,25 +65,25 @@ public class rockstar extends Visual {
         {
             case 1:
             {
-                emil.render();
+                er.render();
                 break;
             }
 
             case 2:
             {
-                bakht.render();
+                //bakht.render();
                 break;
             }
 
             case 3:
             {
-                nico.render();
+                //nico.render();
                 break;
             }
 
             case 4:
             {
-                us.render();
+               // us.render();
                 break;
             }
 
