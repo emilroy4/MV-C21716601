@@ -29,8 +29,8 @@ public class us {
             us.point(stars[i], us.random(-us.height, us.height));
         }
 
-        us.stroke(0,250,0);
-        rotation += us.getAmplitude() / 10f;
+        us.stroke(0,250,154);//green colour
+        rotation += us.getAmplitude() / 5f;
         us.rotateX(rotation);
         us.lights();
         us.strokeWeight((float) 0.5);

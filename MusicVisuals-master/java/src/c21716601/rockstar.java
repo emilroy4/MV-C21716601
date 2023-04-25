@@ -10,6 +10,7 @@ public class rockstar extends Visual {
     bakht bakht;
     nico nico;
     us us;
+    us1 us1;
     int v;
 
     public void settings()
@@ -29,6 +30,7 @@ public class rockstar extends Visual {
         bakht = new bakht(this);
         nico = new nico(this);
         us = new us(this);
+        us1 = new us1(this);
 
         colorMode(RGB);
     }
@@ -96,7 +98,7 @@ public class rockstar extends Visual {
 
             case 5:
             {
-                er.render();
+                us1.render();
                 us.render();
                 break;
             }
