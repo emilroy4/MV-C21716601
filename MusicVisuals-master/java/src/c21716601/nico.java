@@ -50,19 +50,25 @@ public class nico {
 
         float[] b2 = nico.getSmoothedBands();
         for (int i = 0; i < b2.length; i++) {
-            float c = PApplet.map(i, 255, b2.length, 50, 150);
-            nico.stroke(0, 255, 0); // Green stroke color
-            float s = b2[i];
+            float c = PApplet.map(i, 0, b2.length, 0, 255);
+            float s = PApplet.map(b2[i], 0, 255, 10, 100);
+
+            // Set stroke color based on c
+            nico.stroke(c, 255, 0);
 
             // Apply rotation transformation
             nico.pushMatrix();
             nico.rotateZ(rotationAngle);
-            nico.ellipse(0, 0, s / 2, s / 2);
+
+            // Draw ellipse with size based on s
+            nico.ellipse(0, 0, s, s);
+
             nico.popMatrix();
         }
 
         // Increment rotation angle
         rotationAngle += 0.01f;
+
     }
 
 }
