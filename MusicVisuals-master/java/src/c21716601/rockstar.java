@@ -10,7 +10,6 @@ public class rockstar extends Visual {
     bakht bakht;
     nico nico;
     us us;
-
     int v;
 
     public void settings()
