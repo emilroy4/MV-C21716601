@@ -4,14 +4,16 @@ import processing.core.PApplet;
 
 public class nico {
 
-    rockstar nico;
+    private rockstar nico;
+    private PApplet parent;
 
-    public nico(rockstar nico) {
+    public nico(rockstar nico, PApplet parent) {
         this.nico = nico;
+        this.parent = parent;
     }
-    
+
+    private final float TWO_PI = PApplet.TWO_PI;
     public float rotationAngle = 0.0f;
-    private final float TWO_PI = 2 * PApplet.PI;
 
     public void render() {
         nico.noFill();
@@ -79,7 +81,8 @@ public class nico {
             nico.beginShape();
             for (int i = 0; i <= waveResolution; i++) {
                 float x = i * nico.width / waveResolution;
-                float y = nico.height / 2 + sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+                float y = nico.height / 2 + parent.sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+
                 nico.vertex(x, y);
             }
             nico.endShape();
@@ -95,7 +98,8 @@ public class nico {
             nico.beginShape();
             for (int i = 0; i <= waveResolution; i++) {
                 float x = i * nico.width / waveResolution;
-                float y = nico.height / 2 + sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+                float y = nico.height / 2 + parent.sin(x / waveResolution * TWO_PI * bands[w] * 2) * waveHeight;
+
                 nico.vertex(x, y);
             }
             nico.endShape();
@@ -105,10 +109,6 @@ public class nico {
 
         // Increment rotation angle
         rotationAngle += 0.01f;
-    }
-
-    private int sin(float f) {
-        return 0;
     }
 
 }
