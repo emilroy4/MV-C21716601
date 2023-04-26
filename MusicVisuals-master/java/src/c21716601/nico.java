@@ -11,6 +11,7 @@ public class nico {
     }
 
     public float rotationAngle = 0.0f;
+    public float rotationAngle1 = 0.0f;
 
     public void render() {
         nico.noFill();
@@ -51,18 +52,19 @@ public class nico {
         float[] b2 = nico.getSmoothedBands();
         for (int i = 0; i < b2.length; i++) {
             float c = PApplet.map(i, 255, b2.length, 50, 150);
-            nico.stroke(0, 255, 0); // Green stroke color
+            nico.stroke(0, 0, 255); 
             float s = b2[i];
 
             // Apply rotation transformation
             nico.pushMatrix();
-            nico.rotateZ(rotationAngle);
-            nico.ellipse(0, 0, s / 2, s / 2);
+            nico.rotateZ(rotationAngle1);
+            nico.rect(-size / 2, -size / 2, size, size);
             nico.popMatrix();
         }
 
         // Increment rotation angle
         rotationAngle += 0.01f;
+        rotationAngle1 -= 0.01f;
     }
 
 }
