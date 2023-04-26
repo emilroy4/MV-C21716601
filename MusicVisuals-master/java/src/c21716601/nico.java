@@ -69,6 +69,11 @@ public class nico {
             nico.rotateZ(rotationAngle1);
             nico.rect(-size / 2, -size / 2, size, size);
             nico.popMatrix();
+
+            nico.pushMatrix();
+            nico.rotateZ(rotationAngle1);
+            nico.rect(-size1 / 2, -size1 / 2, size1, size1);
+            nico.popMatrix();
         }
 
         // Increment rotation angle
