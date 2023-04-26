@@ -32,25 +32,13 @@ public class nico {
         nico.stroke(0, 255, 0); // Green stroke color
         float size = b[2];
 
-        // Apply rotation transformation
-        nico.pushMatrix();
-        nico.rotateZ(rotationAngle);
-        nico.beginShape();
-        for (float angle = 0; angle < 360; angle += 10) {
-            float x = PApplet.cos(PApplet.radians(angle)) * size / 2;
-            float y = PApplet.sin(PApplet.radians(angle)) * size / 2;
-            nico.curveVertex(x, y, 0);
-        }
-        nico.endShape();
-        nico.popMatrix();
-
         nico.noFill();
         nico.camera(0, -100, 400, 0, 0, 0, 5, 0, 0);
         nico.translate(0, 0, 0);
         nico.strokeWeight(4);
 
         float[] b1 = nico.getSmoothedBands();
-        nico.stroke(0, 255, 0); // Green stroke color
+        nico.stroke(255, 0, 0); // Green stroke color
         float size1 = b1[2];
 
         // Apply rotation transformation
@@ -85,6 +73,7 @@ public class nico {
                 float y = PApplet.sin(PApplet.radians(angle)) * size1 / 2;
                 nico.curveVertex(x, y, 0);
             }
+
             nico.endShape();
             nico.popMatrix();
 
@@ -111,13 +100,14 @@ public class nico {
         nico.stroke(153, 204, 255); // Baby blue stroke color
 
         nico.beginShape();
-        for (float i = -nico.width / 2; i < nico.width / 2; i += 20) { // increase the interval between the points
-            float y = nico.map(nico.sin(i * 0.005f + nico.frameCount * 0.05f), -1, 1, -nico.height / 4,
-                    nico.height / 4); // reduce the frequency of the sine function
-            nico.curveVertex(i, y, -size / 2); // Use curveVertex to create waves
+        float xOffset = 100; // Add an offset value to shift the wave to the right
+        for (float i = -nico.width / 2; i < nico.width / 2; i += 20) {
+            float x = i + xOffset; // Add the offset to the x-coordinate
+            float y = nico.map(nico.sin(i * 0.005f + nico.frameCount * 0.05f), -1, 1, -nico.height / 4, nico.height / 4);
+            nico.curveVertex(x, y, -size / 2);
         }
         nico.endShape();
-
+        
         // Increment rotation angle
         rotationAngle += 0.01f;
         rotationAngle1 -= 0.01f;

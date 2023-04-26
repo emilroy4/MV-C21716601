@@ -90,8 +90,9 @@ public class rockstar extends Visual {
 
             case 4:
             {
-                er.render(); 
                 nico.render();
+                er.render(); 
+
                 break;
             }
 
