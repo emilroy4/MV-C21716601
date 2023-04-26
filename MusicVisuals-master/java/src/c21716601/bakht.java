@@ -12,8 +12,18 @@ public class bakht {
     }
 
     public void render() {
+
+  // set background color
+  if (bakht.frameCount % 120 < 60) {
+    bakht.background(100, 0, 0); // dark red
+  } else {
+    bakht.background(0); // black
+  }
+  
+
+
         
-        bakht.background(0); // set the background to black
+        
         
         // draw the circles
         bakht.noFill();
@@ -22,7 +32,7 @@ public class bakht {
         bakht.strokeWeight(4);
     
         float[] b = bakht.getSmoothedBands();
-        bakht.stroke(100, 200, 100);
+        bakht.stroke(100, 100, 100);
         float size = b[2];
         bakht.circle(0, 0, size);
     
@@ -33,7 +43,7 @@ public class bakht {
         bakht.strokeWeight(4);
     
         float[] b1 = bakht.getSmoothedBands();
-        bakht.stroke(100, 200, 100);
+        bakht.stroke(100, 100, 100);
         float size1 = b1[2];
         bakht.circle(0, 0, size1);
     
@@ -48,10 +58,10 @@ public class bakht {
         {
             float c = PApplet.map(i, 255, b2.length, 50, 150);
             if(i == 2){
-                bakht.stroke(0, 0, 200); // set stroke color to blue for band index 2
+                bakht.stroke(100, 100, 100); // set stroke color to blue for band index 2
             }
             else{
-                bakht.stroke(c, 0, 90); // set stroke color for other bands
+                bakht.stroke(100, 100, 100); // set stroke color for other bands
             }
             float s = b2[i];
             bakht.pushMatrix();
@@ -59,7 +69,7 @@ public class bakht {
             bakht.popMatrix();
         }
         if (bakht.frameCount % 60 == 0){ // every 60 frames
-            bakht.stroke(255); // set stroke color to white
+            bakht.stroke(100); // set stroke color to white
         }
     
 
