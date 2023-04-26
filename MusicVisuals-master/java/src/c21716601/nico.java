@@ -13,6 +13,15 @@ public class nico {
     public float rotationAngle = 0.0f;
 
     public void render() {
+
+
+          // set background color
+  if (nico.frameCount % 120 < 60) {
+    nico.background(0, 20, 0); // dark green
+  } else {
+    nico.background(0); // black
+  }
+  
         nico.noFill();
         nico.camera(0, 100, 400, 0, 0, 0, 1, 0, 0);
         nico.translate(0, 0, 0);
