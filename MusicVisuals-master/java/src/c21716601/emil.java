@@ -24,7 +24,7 @@ public class emil {
             stars[i] = emil.random(-emil.width, emil.width);
         }
 
-        emil.stroke(250);
+        emil.stroke(204,255,229);
         for (int i = 0; i < stars.length; i++) {
             float speed = emil.map(emil.getSmoothedAmplitude(), 0, 1, 1, 5);
             stars[i] += speed;
@@ -35,7 +35,7 @@ public class emil {
         }
 
         float[] b = emil.getSmoothedBands();
-        emil.stroke(250);
+        emil.stroke(204,255,229);
         float size = b[2];
         emil.circle(0, 0, size);
 
@@ -45,7 +45,7 @@ public class emil {
         emil.strokeWeight(4);
 
         float[] b1 = emil.getSmoothedBands();
-        emil.stroke(250);
+        emil.stroke(204,255,229);
         float size1 = b1[2];
         emil.circle(0, 0, size1);
 
