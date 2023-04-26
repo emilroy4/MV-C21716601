@@ -31,10 +31,10 @@ public class bakht {
         bakht.translate(0, 0, 0);
         bakht.strokeWeight(4);
     
-        float[] b = bakht.getSmoothedBands();
+      /*   float[] b = bakht.getSmoothedBands();
         bakht.stroke(100, 100, 100);
         float size = b[2];
-        bakht.circle(0, 0, size);
+        bakht.circle(0, 0, size);*/
     
     
         bakht.noFill();
@@ -42,10 +42,10 @@ public class bakht {
         bakht.translate(0, 0, 0);
         bakht.strokeWeight(4);
     
-        float[] b1 = bakht.getSmoothedBands();
+       /*  float[] b1 = bakht.getSmoothedBands();
         bakht.stroke(100, 100, 100);
         float size1 = b1[2];
-        bakht.circle(0, 0, size1);
+        bakht.circle(0, 0, size1);*/
     
     
         bakht.noFill();
@@ -58,10 +58,10 @@ public class bakht {
         {
             float c = PApplet.map(i, 255, b2.length, 50, 150);
             if(i == 2){
-                bakht.stroke(100, 100, 100); // set stroke color to blue for band index 2
+                bakht.stroke(200, 200, 200); // set stroke color to blue for band index 2
             }
             else{
-                bakht.stroke(100, 100, 100); // set stroke color for other bands
+                bakht.stroke(200, 200, 200); // set stroke color for other bands
             }
             float s = b2[i];
             bakht.pushMatrix();
