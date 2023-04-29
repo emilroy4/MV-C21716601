@@ -14,6 +14,11 @@ public class emil
 
     public void render()
     {
+        if (er.frameCount % 120 < 60) {
+            er.background(200, 0, 0); // dark red
+          } else {
+            er.background(0); // black
+          }
         er.noFill();
         rotation += er.getAmplitude() / 3f; 
         er.rotateX(rotation);
