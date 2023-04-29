@@ -34,6 +34,8 @@ public class rockstar extends Visual {
         us = new us(this);
         us1 = new us1(this);
         case4 = new case4(this);
+        visual6 = new visual6(this);
+
 
         colorMode(RGB);
     }
