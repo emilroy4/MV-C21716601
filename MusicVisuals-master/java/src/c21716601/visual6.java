@@ -36,9 +36,9 @@ public class visual6 {
         rs.background(0);
          // Increment the angle by a small amount
         angle += 0.01;
-        rs.camera(0, -3800, 0, 0, 0, 0, 5, 0, 0);
+        rs.camera(0, -3800, 0, 0, 0, 0, 5, 0, 20);
         rs.pushMatrix();
-        rs.translate(600, 600);
+        rs.translate(500, 500);
         rs.rotateX(angle);
         float amplitude = rs.getSmoothedAmplitude();
         float colorVal = rs.map(amplitude, 0, 1, 0, 255);
@@ -82,7 +82,6 @@ public class visual6 {
             rs.ellipse(rs.width / 2, rs.height / 2, newHoopSizes[i], newHoopSizes[i]);
         }
         rs.popMatrix();
-
         // Add shooting stars effect
         for (int i = 0; i < starSizes.length; i++) {
             if (!starActive[i]) {
