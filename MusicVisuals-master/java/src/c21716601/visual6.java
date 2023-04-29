@@ -30,6 +30,10 @@ public class visual6 {
             // Expand the current hoop
             hoopSize += amplitude * 20;
             hoopOpacity = rs.map(amplitude, 0, 1, 0, 255);
+            if (createNewHoop && hoopSize >= 800) {
+                // If the new hoop has reached a diameter of 800 pixels, make the current hoop disappear
+                hoopOpacity = 0;
+            }
         } else if (createNewHoop) {
             // Create a new hoop when the current one reaches the target size
             hoopSize = 0;
