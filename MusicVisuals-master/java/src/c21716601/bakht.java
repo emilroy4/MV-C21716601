@@ -22,12 +22,73 @@ public class bakht {
   
 
 
-        
-        
-        
-        // draw the circles
+
+  
+// Draw the middle white circle
+bakht.stroke(255);
+bakht.fill(255);
+bakht.circle(0, 0, 20);
+
+
+if (bakht.frameCount % 120 < 60) {
+  
+  
+ bakht.stroke(255, 0, 0); // set stroke color to red
+ bakht.fill(0); // set fill color to red
+ bakht.circle(0, 0, 10);
+} else {
+  bakht.background(0); // black
+  bakht.stroke(255, 0, 0); // set stroke color to red
+ bakht.fill(255, 0, 0); // set fill color to red
+ bakht.circle(0, 0, 10);
+ 
+}
+
+
+
+
+// draw the circles
+bakht.noFill();
+bakht.camera(0, 100, 200, 0, 0, 0, 1, 0, 0);
+bakht.translate(0, 0, 0);
+bakht.strokeWeight(4);
+
+
+
+// Calculate the position of the three circles around the center circle
+float angle = bakht.radians(bakht.frameCount * 2);
+float[] x = new float[4];
+float[] y = new float[4];
+for (int i = 0; i < 4; i++) {
+    x[i] = 60 * bakht.cos(angle + i * bakht.radians(120));
+    y[i] = 60 * bakht.sin(angle + i * bakht.radians(120));
+}
+
+// Draw the three white circles
+for (int i = 0; i < 3; i++) {
+    bakht.stroke(255);
+    bakht.fill(255);
+    bakht.circle(x[i], y[i], 20);
+
+ // Draw a solid red circle inside the white circle
+  // Set color of the red circles based on the background color
+  if (bakht.frameCount % 120 < 60) {
+    bakht.stroke(0); // set stroke color to black when background is dark red
+    bakht.fill(0); // set fill color to black when background is dark red
+    bakht.circle(x[i], y[i], 10); // draw the red circle at the same position as the white circle
+  } else {
+    bakht.stroke(255, 0, 0); // set stroke color to red when background is black
+    bakht.fill(255, 0, 0); // set fill color to red when background is black
+    bakht.circle(x[i], y[i], 10); // draw the red circle at the same position as the white circle
+  }
+  
+
+
+
+
+}
+        // draw the hollow circles that expand
         bakht.noFill();
-        bakht.camera(0, 100, 200, 0, 0, 0, 1, 0, 0);
         bakht.translate(0, 0, 0);
         bakht.strokeWeight(4);
     
@@ -76,45 +137,7 @@ public class bakht {
 
  
      
-// draw the circles
-bakht.noFill();
-bakht.camera(0, 100, 200, 0, 0, 0, 1, 0, 0);
-bakht.translate(0, 0, 0);
-bakht.strokeWeight(4);
 
-// Draw the middle white circle
-bakht.stroke(255);
-bakht.fill(255);
-bakht.circle(0, 0, 20);
-
-bakht.stroke(255, 0, 0); // set stroke color to red
- bakht.fill(255, 0, 0); // set fill color to red
- bakht.circle(0, 0, 10);
-
-
-// Calculate the position of the three circles around the center circle
-float angle = bakht.radians(bakht.frameCount * 2);
-float[] x = new float[4];
-float[] y = new float[4];
-for (int i = 0; i < 4; i++) {
-    x[i] = 60 * bakht.cos(angle + i * bakht.radians(120));
-    y[i] = 60 * bakht.sin(angle + i * bakht.radians(120));
-}
-
-// Draw the three white circles
-for (int i = 0; i < 4; i++) {
-    bakht.stroke(255);
-    bakht.fill(255);
-    bakht.circle(x[i], y[i], 20);
-
- // Draw a solid red circle inside the white circle
- bakht.stroke(255, 0, 0); // set stroke color to red
- bakht.fill(255, 0, 0); // set fill color to red
- bakht.circle(x[i], y[i], 10); // draw the red circle at the same position as the white circle
-
-
-
-}
 
 
 
