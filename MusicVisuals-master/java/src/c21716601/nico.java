@@ -10,107 +10,105 @@ public class nico {
         this.nico = nico;
     }
 
-    public float rotationAngle = 0.0f;
-    public float rotationAngle1 = 0.0f;
+    float angle = 0.0f;
+    float width = 800f;
+    float height = 800f;
 
     public void render() {
 
+        // nico.background(0); // set the background to black
+        // nico.stroke(255); // set the stroke color to white
+        // nico.resetMatrix(); // reset the coordinate system to its default state
 
-          // set background color
-  if (nico.frameCount % 120 < 60) {
-    nico.background(0, 20, 0); // dark green
-  } else {
-    nico.background(0); // black
-  }
-  
-        nico.noFill();
-        nico.camera(0, 100, 400, 0, 0, 0, 1, 0, 0);
-        nico.translate(0, 0, 0);
-        nico.strokeWeight(4);
+        // float[] b = nico.getSmoothedBands();
+        // nico.stroke(204,255,229);
+        // float size = b[2];
+        // nico.circle(0, 0, size);
 
+        float interval = 2000; // alternate colors every 2 seconds
+        float currentTime = nico.millis();
+        
+        if (currentTime % interval < interval / 2) {
+            nico.fill(102, 0, 102); // set the fill color to dark purple
+            nico.stroke(137, 207, 240); // set stroke baby blue
+        } else {
+          nico.fill(137, 207, 240); // set the fill color to baby blue
+          nico.stroke(102, 0, 102); // set stroke dark purple
+        }
+        
+        //nico.stroke(102, 0, 102); // set stroke dark purple
+        nico.strokeWeight(5); // set the stroke thickness to 5 pixels
+        nico.pushMatrix(); // save the current transformation
+        nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        nico.translate(-90, 0, 0); // move the cube to the left
+        nico.rotateX(angle); // rotate the cube around the y-axis
+        nico.box(40); // draw the cube
+        nico.popMatrix(); // restore the previous transformation
+        
+        nico.pushMatrix(); // save the current transformation
+        nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        nico.translate(90, 0, 0); // move the cube to the right
+        nico.rotateX(angle); // rotate the cube around the x-axis
+        nico.box(40); // draw the cube
+        nico.popMatrix(); // restore the previous transformation
+        
+        // nico.pushMatrix(); // save the current transformation
+        // nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        // nico.translate(-70, -70, 40); // move the cube to the left and down
+        // nico.rotateZ(angle + PApplet.radians(45)); // rotate the cube around the
+        // Z-axis by 45 degrees
+        // nico.box(40); // draw the cube
+        // nico.popMatrix(); // restore the previous transformation
+
+        // // Right cube
+        // nico.pushMatrix(); // save the current transformation
+        // nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        // nico.translate(70, 70, 40); // move the cube to the right and up
+        // nico.rotateZ(angle + PApplet.radians(45)); // rotate the cube around the
+        // Z-axis by 45 degrees
+        // nico.box(40); // draw the cube
+        // nico.popMatrix(); // restore the previous transformation
+
+        // SPHERE
+
+        nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
+        nico.translate(0, 0);
+        nico.strokeWeight(1); // set the stroke thickness to 2 pixels
+        nico.rotateZ((float) (angle + Math.PI / 2)); // rotate the sphere around the Z-axis by 90 degrees
         float[] b = nico.getSmoothedBands();
-        nico.stroke(0, 255, 0); // Green stroke color
-        float size = b[2];
 
-        nico.noFill();
-        nico.camera(0, -100, 400, 0, 0, 0, 5, 0, 0);
-        nico.translate(0, 0, 0);
-        nico.strokeWeight(4);
+        // Map the value of b[2] to a range between 0 and 1
+        float mappedValue = nico.map(b[2], 0, 255, 0, 1);
 
-        float[] b1 = nico.getSmoothedBands();
-        nico.stroke(255, 0, 0); // Green stroke color
-        float size1 = b1[2];
+        // Scale the value of the sphere based on the mapped value
+        float size = 80 * mappedValue;
+        size = Math.min(size, 70); // limit the maximum height of the sphere to 70 pixels
 
-        // Apply rotation transformation
         nico.pushMatrix();
-        nico.rotateZ(rotationAngle);
-        nico.beginShape();
-            for (float angle = 0; angle < 360; angle += 10) {
-                float x = PApplet.cos(PApplet.radians(angle)) * size1 / 2;
-                float y = PApplet.sin(PApplet.radians(angle)) * size1 / 2;
-                nico.curveVertex(x, y, 0);
-            }
-            nico.endShape();
+        nico.translate(0, 0, 0); // move the sphere to the center of the screen
+        nico.fill(137, 207, 240); // set the fill color to baby blue
+        nico.stroke(102, 0, 102); // set stroke dark purple
+        nico.sphere(size); // draw a sphere with a diameter of 'size'
         nico.popMatrix();
 
-        nico.noFill();
-        nico.camera(0, 0, 400, 0, 0, 0, 5, 0, 0);
-        nico.translate(0, 0, 0);
-        nico.strokeWeight(2);
+        angle += 0.01; // increment the rotation angle
 
-        float[] b2 = nico.getSmoothedBands();
-        for (int i = 0; i < b2.length; i++) {
-            float c = PApplet.map(i, 255, b2.length, 50, 150);
-            nico.stroke(0, 0, 255);
-            float s = b2[i];
+        // SHOOTING STARS
 
-            // Apply rotation transformation
-            nico.pushMatrix();
-            nico.rotateZ(rotationAngle1);
-            nico.beginShape();
-            for (float angle = 0; angle < 360; angle += 10) {
-                float x = PApplet.cos(PApplet.radians(angle)) * size1 / 2;
-                float y = PApplet.sin(PApplet.radians(angle)) * size1 / 2;
-                nico.curveVertex(x, y, 0);
-            }
+        // Call shootingStars method
+        shootingStars();
 
-            nico.endShape();
-            nico.popMatrix();
+    }
 
+    // New shootingStars method
+    public void shootingStars() {
+        nico.randomSeed(1);
+        for (int i = 0; i < 100; i++) {
+            nico.stroke(137, 207, 240); // set the stroke color to baby blue
+            nico.strokeWeight(nico.random(2, 5)); // set a random stroke weight between 2 and 5 pixels
+            nico.point(nico.random(-width / 2, width / 2), nico.random(-height / 2, height / 2),
+                    nico.random(-500, 500));
         }
-
-        nico.stroke(153, 204, 255); // Baby blue stroke color
-
-        float numCurves = 10; // number of curves to draw
-        float curveHeight = size / numCurves; // height of each curve
-        
-        for (int j = 0; j < numCurves; j++) {
-          float z = -size / 2 + j * curveHeight; // z position of the current curve
-          
-          nico.beginShape();
-          for (float i = -nico.width / 2; i < nico.width / 2; i += 20) { // increase the interval between the points
-              float y = nico.map(nico.sin(i * 0.005f + nico.frameCount * 0.05f), -1, 1, -nico.height / 4,
-                      nico.height / 4); // reduce the frequency of the sine function
-              nico.curveVertex(i, y, z); // Use curveVertex to create waves
-          }
-          nico.endShape();
-        }
-        
-
-        nico.stroke(153, 204, 255); // Baby blue stroke color
-
-        nico.beginShape();
-        float xOffset = 100; // Add an offset value to shift the wave to the right
-        for (float i = -nico.width / 2; i < nico.width / 2; i += 20) {
-            float x = i + xOffset; // Add the offset to the x-coordinate
-            float y = nico.map(nico.sin(i * 0.005f + nico.frameCount * 0.05f), -1, 1, -nico.height / 4, nico.height / 4);
-            nico.curveVertex(x, y, -size / 2);
-        }
-        nico.endShape();
-        
-        // Increment rotation angle
-        rotationAngle += 0.01f;
-        rotationAngle1 -= 0.01f;
     }
 
 }
