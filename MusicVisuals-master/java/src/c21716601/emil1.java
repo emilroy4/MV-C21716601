@@ -24,7 +24,7 @@ public class emil1 {
         }
 
         //stars
-        emil.stroke(250, 96, 78);
+        emil.stroke(255,255, 255);//colour
         for (int i = 0; i < stars.length; i++) {
             float speed = emil.map(emil.getSmoothedAmplitude(), 0, 1, 1, 5);
             stars[i] += speed;
