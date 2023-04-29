@@ -97,8 +97,8 @@ public class rockstar extends Visual {
 
             case 4:
             {
-                case4.render();
-                nico.render();
+            
+                visual6.render();
 
                 break;
             }
@@ -112,13 +112,6 @@ public class rockstar extends Visual {
                 break;
             }
 
-            case 6:
-            {
-
-                visual6.render();
-
-                break;
-            }
 
         }
     }
