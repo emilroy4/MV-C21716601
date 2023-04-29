@@ -45,7 +45,7 @@ public class rockstar extends Visual {
             getAudioPlayer().play();
         }
 
-        if (keyCode >= '0' && keyCode <= '7') 
+        if (keyCode >= '0' && keyCode <= '5') 
         {
             v = keyCode - '0';
         }
