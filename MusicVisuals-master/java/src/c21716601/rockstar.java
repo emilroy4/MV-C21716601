@@ -76,13 +76,15 @@ public class rockstar extends Visual {
         {
             case 1:
             {
-                er.render();
+                bakht.render();
+
                 break;
             }
 
             case 2:
             {
-                bakht.render();
+                er.render();
+
                 break;
             }
 
