@@ -12,6 +12,7 @@ public class rockstar extends Visual {
     us us;
     us1 us1;
     case4 case4;
+    visual6 visual6;
     int v;
 
     public void settings()
@@ -103,6 +104,14 @@ public class rockstar extends Visual {
 
                 us1.render();
                 us.render();
+
+                break;
+            }
+
+            case 6:
+            {
+
+                visual6.render();
 
                 break;
             }
