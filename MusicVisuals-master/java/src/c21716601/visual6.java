@@ -4,51 +4,47 @@ import processing.core.PApplet;
 
 public class visual6 {
 
-    private rockstar rs;
-    private float[] bands;
-    private float angle = 0.0f;
+    rockstar rs;
+    private float hoopSize = 0.0f;
+    private float hoopOpacity = 0.0f;
+    private boolean createNewHoop = false;
+    private float newHoopOpacity = 0.0f;
 
     public visual6(rockstar rs) {
         this.rs = rs;
     }
 
     public void render() {
-        try {
-            rs.background(0);
-            bands = rs.getSmoothedBands();
-            float mappedValue = rs.map(bands[2], 0, 255, 0, rs.width / 2);
+        rs.background(0);
 
-            rs.pushMatrix();
-            rs.translate(rs.width / 2, rs.height / 2);
+        float amplitude = rs.getSmoothedAmplitude();
+        float colorVal = rs.map(amplitude, 0, 1, 0, 255);
 
-            // Draw the face
-            float faceSize = rs.width / 3;
-            rs.stroke(255);
-            rs.strokeWeight(3);
-            rs.noFill();
-            rs.ellipse(0, 0, faceSize, faceSize);
+        if (hoopSize >= 600 && !createNewHoop) {
+            // Start creating a new hoop if the current one is half the target size
+            createNewHoop = true;
+            newHoopOpacity = hoopOpacity;
+        }
 
-            // Draw the eyes
-            float eyeSize = faceSize / 8;
-            rs.fill(255);
-            rs.noStroke();
-            rs.ellipse(-faceSize / 4, -faceSize / 8, eyeSize, eyeSize);
-            rs.ellipse(faceSize / 4, -faceSize / 8, eyeSize, eyeSize);
-
-            // Draw the mouth
-            float mouthSize = faceSize / 4;
-            float mouthOpen = rs.map(bands[6], 0, 255, 0, 1);
-            float mouthAngle = rs.map(mouthOpen, 0, 1, 0, PApplet.PI / 2);
-            rs.fill(255);
-            rs.noStroke();
-            rs.arc(0, faceSize / 8, mouthSize, mouthSize, -mouthAngle, mouthAngle, PApplet.OPEN);
-
-            rs.popMatrix();
-            angle += 0.01f;
-        } catch (Exception e) {
-            System.out.println("Exception in Visual6: " + e.getMessage());
-            e.printStackTrace();
+        if (hoopSize < 1000) {
+            // Expand the current hoop
+            hoopSize += amplitude * 20;
+            hoopOpacity = rs.map(amplitude, 0, 1, 0, 255);
+        } else if (createNewHoop) {
+            // Create a new hoop when the current one reaches the target size
+            hoopSize = 0;
+            hoopOpacity = 0;
+            createNewHoop = false;
+        }
+            
+        rs.strokeWeight(10);
+        rs.stroke(colorVal, 255, 255, hoopOpacity);
+        rs.noFill();
+        rs.ellipse(rs.width / 2, rs.height / 2, hoopSize, hoopSize);
+        if (createNewHoop) {
+            // Draw the new hoop as a faint circle
+            rs.stroke(colorVal, 255, 255, newHoopOpacity / 2);
+            rs.ellipse(rs.width / 2, rs.height / 2, hoopSize / 2, hoopSize / 2);
         }
     }
-
 }
