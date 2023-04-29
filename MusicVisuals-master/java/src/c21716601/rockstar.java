@@ -7,6 +7,7 @@ public class rockstar extends Visual {
 
     
     emil er;
+    emil1 er1;
     bakht bakht;
     nico nico;
     us us;
@@ -29,6 +30,7 @@ public class rockstar extends Visual {
         loadAudio("immortal.mp3");
 
         er = new emil(this);
+        er1 = new emil1(this);
         bakht = new bakht(this);
         nico = new nico(this);
         us = new us(this);
@@ -82,8 +84,9 @@ public class rockstar extends Visual {
 
             case 2:
             {
+
                 er.render();
-                us1.render();
+                er1.render();
 
                 break;
             }
