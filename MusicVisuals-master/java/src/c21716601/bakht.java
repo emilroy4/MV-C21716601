@@ -31,8 +31,6 @@ bakht.circle(0, 0, 20);
 
 
 if (bakht.frameCount % 120 < 60) {
-  
-  
  bakht.stroke(255, 0, 0); // set stroke color to red
  bakht.fill(0); // set fill color to red
  bakht.circle(0, 0, 10);

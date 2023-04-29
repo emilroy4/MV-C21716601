@@ -12,33 +12,36 @@ public class emil
         this.er = er;
     }
 
-    public void render()
-    {
-        //if (er.frameCount % 120 < 60) {
-          //  er.background(250, 96, 78); // dark red
-          //} else {
-            //er.background(0); // black
-         //  }
-
-          
+    public void render() {
         er.noFill();
-        rotation += er.getAmplitude() / 3f; 
+        rotation += er.getAmplitude() / 3f;
         er.rotateX(rotation);
         er.strokeWeight(2);
-
+    
+        // Set color mode to HSB
+        er.colorMode(PConstants.HSB, 255);
+    
         float[] b = er.getSmoothedBands();
-        for(int i=0; i<b.length ; i++)
-        {
-            float colour = PApplet.map(i, 0, b.length, 0, 70);
-            er.stroke(0, 0, 255);
-            er.stroke(255, 255, 255);
+        for (int i = 0; i < b.length; i++) {
+            float colour = PApplet.map(i, 0, b.length, 0, 155);
+    
+            // Get the audio amplitude
+            float audioAmplitude = er.getAmplitude();
+    
+            // Calculate the hue based on the audio amplitude
+            float hue = PApplet.map(audioAmplitude, 0, 1, 0, 255);
+    
+            // Set the stroke color using the calculated hue
+            er.stroke(hue, 255, 255);
+    
             er.pushMatrix();
-            
             er.box(colour);
-            
             er.popMatrix();
         }
-
-        
+    
+        // Reset color mode to RGB (optional)
+        er.colorMode(PConstants.RGB, 255);
     }
+    
+    
 }
