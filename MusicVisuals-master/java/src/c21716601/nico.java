@@ -16,14 +16,7 @@ public class nico {
 
     public void render() {
 
-        // nico.background(0); // set the background to black
-        // nico.stroke(255); // set the stroke color to white
-        // nico.resetMatrix(); // reset the coordinate system to its default state
-
-        // float[] b = nico.getSmoothedBands();
-        // nico.stroke(204,255,229);
-        // float size = b[2];
-        // nico.circle(0, 0, size);
+        // CUBES
 
         float interval = 2000; // alternate colors every 2 seconds
         float currentTime = nico.millis();
@@ -35,8 +28,7 @@ public class nico {
           nico.fill(137, 207, 240); // set the fill color to baby blue
           nico.stroke(102, 0, 102); // set stroke dark purple
         }
-        
-        //nico.stroke(102, 0, 102); // set stroke dark purple
+
         nico.strokeWeight(5); // set the stroke thickness to 5 pixels
         nico.pushMatrix(); // save the current transformation
         nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
@@ -52,23 +44,6 @@ public class nico {
         nico.box(40); // draw the cube
         nico.popMatrix(); // restore the previous transformation
         
-        // nico.pushMatrix(); // save the current transformation
-        // nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
-        // nico.translate(-70, -70, 40); // move the cube to the left and down
-        // nico.rotateZ(angle + PApplet.radians(45)); // rotate the cube around the
-        // Z-axis by 45 degrees
-        // nico.box(40); // draw the cube
-        // nico.popMatrix(); // restore the previous transformation
-
-        // // Right cube
-        // nico.pushMatrix(); // save the current transformation
-        // nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
-        // nico.translate(70, 70, 40); // move the cube to the right and up
-        // nico.rotateZ(angle + PApplet.radians(45)); // rotate the cube around the
-        // Z-axis by 45 degrees
-        // nico.box(40); // draw the cube
-        // nico.popMatrix(); // restore the previous transformation
-
         // SPHERE
 
         nico.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
@@ -94,7 +69,6 @@ public class nico {
         angle += 0.01; // increment the rotation angle
 
         // SHOOTING STARS
-
         // Call shootingStars method
         shootingStars();
 
