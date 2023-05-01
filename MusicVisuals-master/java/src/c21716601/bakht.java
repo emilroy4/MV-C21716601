@@ -19,11 +19,7 @@ public class bakht {
   } else {
     bakht.background(0); // black
   }
-  
 
-
-
-  
 // Draw the middle white circle
 bakht.stroke(255);
 bakht.fill(255);
@@ -42,16 +38,11 @@ if (bakht.frameCount % 120 < 60) {
  
 }
 
-
-
-
 // draw the circles
 bakht.noFill();
 bakht.camera(0, 100, 200, 0, 0, 0, 1, 0, 0);
 bakht.translate(0, 0, 0);
 bakht.strokeWeight(4);
-
-
 
 // Calculate the position of the three circles around the center circle
 float angle = bakht.radians(bakht.frameCount * 2);
@@ -79,12 +70,8 @@ for (int i = 0; i < 3; i++) {
     bakht.fill(255, 0, 0); // set fill color to red when background is black
     bakht.circle(x[i], y[i], 10); // draw the red circle at the same position as the white circle
   }
-  
-
-
-
-
 }
+
         // draw the hollow circles that expand
         bakht.noFill();
         bakht.translate(0, 0, 0);
@@ -130,19 +117,5 @@ for (int i = 0; i < 3; i++) {
         if (bakht.frameCount % 60 == 0){ // every 60 frames
             bakht.stroke(100); // set stroke color to white
         }
-    
-
-
- 
-     
-
-
-
-
-
 }
-
-
-
-
 }
