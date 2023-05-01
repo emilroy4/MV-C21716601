@@ -20,17 +20,52 @@ What we are most proud of is how we were able to work as a group and develop coo
 
 
 
-This is code:
+This is the code we used to switch between the visuals. We decided to use a switch statement as we believe it is efficient and simple to code.
 
 ```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
+  switch(v)
+        {
+            case 1:
+            {
+                bakht.render();
+                break;
+            }
+
+            case 2:
+            {
+
+                er.render();
+                er1.render();
+
+                break;
+            }
+
+            case 3:
+            {
+                
+                nico.render();
+                break;
+            }
+
+            case 4:
+            {
+            
+                visual6.render();
+
+                break;
+            }
+
+            case 5:
+            {
+
+                us1.render();
+                us.render();
+
+                break;
+            }
+
+
+        }
 ```
 
 
