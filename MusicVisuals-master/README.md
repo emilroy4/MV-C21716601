@@ -62,13 +62,17 @@ public void render()
 ```
 
 # Images
-
+Case 1:
 ![An image](images/1.2.png)
 ![An image](images/1.3.png)
+Case 2:
 ![An image](images/2.png)
 ![An image](images/2.1.png)
+Case 3:
 ![An image](images/3.png)
+Case 4:
 ![An image](images/4.png)
+Case 5:
 ![An image](images/5.png)
 
 
