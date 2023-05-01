@@ -70,7 +70,7 @@ This is the code we used to switch between the visuals. We decided to use a swit
 ```
 
 
-This is the code to render case 1.
+This is the code to render case 1:
 ```Java
    public void render() {
 
@@ -165,7 +165,7 @@ for (int i = 0; i < 3; i++) {
 
 ```
 
-This is the code to render case 5.
+This is the code to render case 5:
 ```Java
  public void render()
     {
