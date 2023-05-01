@@ -76,23 +76,6 @@ for (int i = 0; i < 3; i++) {
         bakht.translate(0, 0, 0);
         bakht.strokeWeight(4);
     
-      /*   float[] b = bakht.getSmoothedBands();
-        bakht.stroke(100, 100, 100);
-        float size = b[2];
-        bakht.circle(0, 0, size);*/
-    
-    
-        bakht.noFill();
-        bakht.camera(0, -100, 200, 0, 0, 0, 5, 0, 0);
-        bakht.translate(0, 0, 0);
-        bakht.strokeWeight(4);
-    
-       /*  float[] b1 = bakht.getSmoothedBands();
-        bakht.stroke(100, 100, 100);
-        float size1 = b1[2];
-        bakht.circle(0, 0, size1);*/
-    
-    
         bakht.noFill();
         bakht.camera(0, 0, 200, 0, 0, 0, 5, 0, 0);
         bakht.translate(0, 0, 0);
