@@ -1,6 +1,7 @@
 package c21716601;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class visual6 {
 
@@ -12,17 +13,16 @@ public class visual6 {
     private int lastHoopTime = 0;
     private int hoopInterval = 1000; // 1 second interval
     private int currentHoop = 0;
-    private boolean[] shootingStarActive = new boolean[15];
-    private float[] shootingStarX = new float[15];
-    private float[] shootingStarY = new float[15];
-    private float[] shootingStarLength = new float[15];
-    private float[] shootingStarFade = new float[15];
-    private float[] shootingStarAngle = new float[15];
+    // private boolean[] shootingStarActive = new boolean[15];
+    // private float[] shootingStarX = new float[15];
+    // private float[] shootingStarY = new float[15];
+    // private float[] shootingStarLength = new float[15];
+    // private float[] shootingStarFade = new float[15];
+    // private float[] shootingStarAngle = new float[15];
     float[] starSizes = new float[30];
     float[] starOpacities = new float[30];
     float[] starFades = new float[30];
     boolean[] starActive = new boolean[30];
-    
 
     public visual6(rockstar rs) {
         this.rs = rs;
@@ -33,15 +33,20 @@ public class visual6 {
     float height = 800f;
 
     public void render() {
+
         rs.background(0);
-         // Increment the angle by a small amount
-        angle += 0.01;
-        rs.camera(0, -3800, 0, 0, 0, 0, 5, 0, 20);
+        angle += 1.0; // Increment the angle by a small amount
+        rs.camera(-1800, -1800, 0, 0, 0, 0, 1, 0, 0);
+
         rs.pushMatrix();
-        rs.translate(500, 500);
+        rs.translate(400, 400);
         rs.rotateX(angle);
         float amplitude = rs.getSmoothedAmplitude();
-        float colorVal = rs.map(amplitude, 0, 1, 0, 255);
+
+        // Smoothly transition color values through RGB spectrum
+        rs.colorMode(PConstants.RGB);
+        rs.stroke((float) Math.abs(255 * Math.sin(angle)), (float) Math.abs(255 * Math.sin(angle + PConstants.PI / 2)),
+                (float) Math.abs(255 * Math.sin(angle + PConstants.PI)));
 
         // Expand the current hoop
         hoopSizes[currentHoop] += amplitude * 20;
@@ -68,12 +73,25 @@ public class visual6 {
         // Draw all the hoops
         for (int i = 0; i < hoopSizes.length; i++) {
             rs.strokeWeight(10);
-            rs.stroke(200, 0, 0, hoopOpacities[i]); // set stroke color to a darker red for the current hoop
+
+            // Set stroke color to smoothly transition through RGB spectrum
+            float r = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4)));
+            float g = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4 + PConstants.PI / 2)));
+            float b = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4 + PConstants.PI)));
+            rs.colorMode(PConstants.RGB);
+            rs.stroke(r, g, b, hoopOpacities[i]);
+
             rs.noFill();
             rs.ellipse(rs.width / 2, rs.height / 2, hoopSizes[i], hoopSizes[i]);
 
-            rs.stroke(200, 0, 0, newHoopOpacities[i]); // set stroke color to a darker red for the new hoop
+            // Set stroke color for new hoop
+            r = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4)));
+            g = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4 + PConstants.PI / 2)));
+            b = (float) (255 * Math.abs(Math.sin(angle + i * PConstants.PI / 4 + PConstants.PI)));
+            rs.colorMode(PConstants.RGB);
+            rs.stroke(r, g, b, newHoopOpacities[i]);
             rs.noFill();
+
             // Reset the new hoop when it goes out of camera
             if (newHoopSizes[i] >= PApplet.sqrt(PApplet.pow(rs.width, 2) + PApplet.pow(rs.height, 2)) + 200) {
                 newHoopSizes[i] = 5.0f;
@@ -82,56 +100,61 @@ public class visual6 {
             rs.ellipse(rs.width / 2, rs.height / 2, newHoopSizes[i], newHoopSizes[i]);
         }
         rs.popMatrix();
-        // Add shooting stars effect
-        for (int i = 0; i < starSizes.length; i++) {
-            if (!starActive[i]) {
-                // Generate a new star
-                starSizes[i] = rs.random(5, 15);
-                starOpacities[i] = 0;
-                starFades[i] = rs.random(100, 255);
-                starActive[i] = true;
-            }
 
-            // Update the star's opacity
-            float amplitude1 = rs.getSmoothedAmplitude();
-            float colorVal1 = rs.map(amplitude1, 0, 1, 0, 255);
-            starOpacities[i] = PApplet.lerp(starOpacities[i], colorVal1, 0.2f); // Interpolate between the current
-                                                                                // opacity and the new opacity based on
-                                                                                // the audio amplitude
+        // rs.pushMatrix();
+        // // Add shooting stars effect
+        // for (int i = 0; i < starSizes.length; i++) {
+        // if (!starActive[i]) {
+        // // Generate a new star
+        // starSizes[i] = rs.random(5, 15);
+        // starOpacities[i] = 0;
+        // starFades[i] = rs.random(100, 255);
+        // starActive[i] = true;
+        // }
 
-            // Draw the star
-            rs.noStroke();
-            rs.fill(255, 255, 255, starOpacities[i]);
-            rs.ellipse(rs.random(0, rs.width), rs.random(0, rs.height), starSizes[i], starSizes[i]);
+        // // Update the star's opacity
+        // float amplitude1 = rs.getSmoothedAmplitude();
+        // float colorVal1 = rs.map(amplitude1, 0, 1, 0, 255);
+        // starOpacities[i] = PApplet.lerp(starOpacities[i], colorVal1, 0.2f); //
+        // Interpolate between the current
+        // // opacity and the new opacity based on
+        // // the audio amplitude
 
-            // Fade out the star
-            if (starOpacities[i] >= starFades[i]) {
-                starOpacities[i] = starFades[i];
-                starActive[i] = false;
-            }
-        }
+        // // Draw the star
+        // rs.noStroke();
+        // rs.fill(255, 255, 255, starOpacities[i]);
+        // rs.ellipse(rs.random(0, rs.width), rs.random(0, rs.height), starSizes[i],
+        // starSizes[i]);
 
-        // Draw the shooting stars
-        rs.strokeWeight(3);
-        for (int j = 0; j < shootingStarActive.length; j++) {
-            if (shootingStarActive[j]) {
-                for (int i = 0; i < shootingStarLength[j]; i++) {
-                    float fade = rs.map(i, 0, shootingStarLength[j], 255, 0);
-                    rs.stroke(255, 255, 255, fade);
-                    float x = shootingStarX[j] + i * PApplet.cos(shootingStarAngle[j]);
-                    float y = shootingStarY[j] + i * PApplet.sin(shootingStarAngle[j]);
-                    rs.line(x, y, x - PApplet.cos(shootingStarAngle[j] - PApplet.PI / 2),
-                            y - PApplet.sin(shootingStarAngle[j] - PApplet.PI / 2));
-                }
+        // // Fade out the star
+        // if (starOpacities[i] >= starFades[i]) {
+        // starOpacities[i] = starFades[i];
+        // starActive[i] = false;
+        // }
+        // }
 
-                // Fade out the shooting star
-                shootingStarFade[j] = 255 - (amplitude * 255);
+        // // Draw the shooting stars
+        // rs.strokeWeight(10);
+        // for (int j = 0; j < shootingStarActive.length; j++) {
+        // if (shootingStarActive[j]) {
+        // for (int i = 0; i < shootingStarLength[j]; i++) {
+        // float fade = rs.map(i, 0, shootingStarLength[j], 255, 0);
+        // rs.stroke(255, 255, 255, fade);
+        // float x = shootingStarX[j] + i * PApplet.cos(shootingStarAngle[j]);
+        // float y = shootingStarY[j] + i * PApplet.sin(shootingStarAngle[j]);
+        // rs.line(x, y, x - PApplet.cos(shootingStarAngle[j] - PApplet.PI / 2),
+        // y - PApplet.sin(shootingStarAngle[j] - PApplet.PI / 2));
+        // }
 
-                if (shootingStarFade[j] <= 0) {
-                    // Reset the shooting star
-                    shootingStarActive[j] = false;
-                }
-            }
-        }
+        // // Fade out the shooting star
+        // shootingStarFade[j] = 255 - (amplitude * 255);
+
+        // if (shootingStarFade[j] <= 0) {
+        // // Reset the shooting star
+        // shootingStarActive[j] = false;
+        // }
+        // }
+        // }
+        // rs.popMatrix();
     }
 }
