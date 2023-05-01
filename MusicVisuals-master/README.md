@@ -15,8 +15,9 @@ Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
 # How it works
 We use the 
 
-# What We am most proud of in the assignment
-What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
+# What we are most proud of in the assignment
+We are proud in our team's accomplishment of completing this music visual project. At the start of the project, we thoroughly analyzed the assignment brief, dissecting it into manageable tasks that we could individually work on. Our team collaborated proficiently, regularly discussing our progress, brainstorming ideas, and offering constructive feedback to one another. Diligently utilizing our technical skills in Processing, Minim, and Github, we created an audio-responsive program that effectively conveyed our chosen song's mood, tempo, and structure. We experimented with various visual elements, refined our code, and iterated on our design until we produced five visually stimulating and abstract representation of the song, showcasing our creativity and storytelling capabilities. This project allowed us to sharpen our teamwork, creativity, and technical skills, and we are proud of the program we produced as a team.
+
 
 # Code
 
