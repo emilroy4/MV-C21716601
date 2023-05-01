@@ -18,7 +18,7 @@ We use the
 # What We am most proud of in the assignment
 What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
 
-
+# Code
 
 This is the code we used to switch between the visuals. We decided to use a switch statement as we believe it is efficient and simple to code.
 
