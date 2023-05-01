@@ -37,7 +37,7 @@ public void setup()
     }
 ```
 
-Then finally in the draw method, the variable and the method used to created the visuals are called and to this we used a switch statement:
+In the draw method, the variable and the method used to created the visuals are called and to this we used a switch statement:
 
 ```Java
 public void draw()
@@ -103,6 +103,8 @@ public void draw()
         }
     }
 ```
+
+Pressing from 1 to 5 will display one of the visuals we created. When you press to move onto the next key, you should see a new shape that also interacts with the song. These visuals range from spinning hoops to a colourful cube.
 
 # What we are most proud of in the assignment
 We are proud in our team's accomplishment of completing this music visual project. At the start of the project, we thoroughly analyzed the assignment brief, dissecting it into manageable tasks that we could individually work on. Our team collaborated proficiently, regularly discussing our progress, brainstorming ideas, and offering constructive feedback to one another. Diligently utilizing our technical skills in Processing, Minim, and Github, we created an audio-responsive program that effectively conveyed our chosen song's mood, tempo, and structure. We experimented with various visual elements, refined our code, and iterated on our design until we produced five visually stimulating and abstract representation of the song, showcasing our creativity and storytelling capabilities. This project allowed us to sharpen our teamwork, creativity, and technical skills, and we are proud of the program we produced as a team.
