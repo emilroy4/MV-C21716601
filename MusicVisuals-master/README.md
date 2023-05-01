@@ -10,30 +10,15 @@ Assignment Brief: In this creative coding team project, you will work in a team 
 # Instructions
 Press F5 to see the Music Visual.
 Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
+
+
 # How it works
 We use the 
+
 # What We am most proud of in the assignment
 What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
-# Markdown Tutorial
 
-This is *emphasis*
 
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
 
 This is code:
 
@@ -48,18 +33,7 @@ public void render()
 }
 ```
 
-So is this without specifying the language:
 
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
 # Images
 Case 1:
