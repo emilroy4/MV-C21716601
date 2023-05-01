@@ -14,9 +14,10 @@ Student Number: C21416022 (Bakht Zia Khan), C21716601 (Emil Roy), C21388736 (Nic
 # Description of the assignment
 
 # Instructions
-
+Press F5 to see the Music Visual.
+Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
 # How it works
-
+We use the 
 # What I am most proud of in the assignment
 
 # Markdown Tutorial
