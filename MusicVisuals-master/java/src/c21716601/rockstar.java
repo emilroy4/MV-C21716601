@@ -12,7 +12,6 @@ public class rockstar extends Visual {
     nico nico;
     us us;
     us1 us1;
-    case4 case4;
     visual6 visual6;
     int v;
 
@@ -35,7 +34,6 @@ public class rockstar extends Visual {
         nico = new nico(this);
         us = new us(this);
         us1 = new us1(this);
-        case4 = new case4(this);
         visual6 = new visual6(this);
 
 
@@ -100,7 +98,7 @@ public class rockstar extends Visual {
 
             case 4:
             {
-            
+
                 visual6.render();
 
                 break;

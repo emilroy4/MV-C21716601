@@ -13,7 +13,96 @@ Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
 
 
 # How it works
-We use the 
+The Main.java file is the main file that runs everything on the program. When you press F5 to run the code, main calls on rockstar.java. The file rockstar.java calls on all the visuals, and allows the user to flick through them using the keys 1-5. The way this works is that the other classes use inheritance to call on the super/parent class. To do this the word extends is used. 
+
+In the setup method, objects are created in rockstar.java.
+
+```Java
+public void setup()
+    {
+        startMinim();
+
+        loadAudio("immortal.mp3");
+
+        er = new emil(this);
+        er1 = new emil1(this);
+        bakht = new bakht(this);
+        nico = new nico(this);
+        us = new us(this);
+        us1 = new us1(this);
+        visual6 = new visual6(this);
+
+
+        colorMode(RGB);
+    }
+```
+
+Then finally in the draw method, the variable and the method used to created the shapes are called and to this I used a switch statement:
+
+```Java
+public void draw()
+    {
+        background(0);
+        try
+        {
+            // Call this if you want to use FFT data
+            calculateFFT(); 
+        }
+        catch(VisualException e)
+        {
+            e.printStackTrace();
+        } 
+        // Call this is you want to use frequency bands
+        calculateFrequencyBands(); 
+
+        // Call this is you want to get the average amplitude
+        calculateAverageAmplitude();
+
+        switch(v)
+        {
+            case 1:
+            {
+                bakht.render();
+                break;
+            }
+
+            case 2:
+            {
+
+                er.render();
+                er1.render();
+
+                break;
+            }
+
+            case 3:
+            {
+                
+                nico.render();
+                break;
+            }
+
+            case 4:
+            {
+
+                visual6.render();
+
+                break;
+            }
+
+            case 5:
+            {
+
+                us1.render();
+                us.render();
+
+                break;
+            }
+
+
+        }
+    }
+```
 
 # What We am most proud of in the assignment
 What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
