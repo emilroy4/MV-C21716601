@@ -13,7 +13,7 @@ Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
 # How it works
 We use the 
 # What I am most proud of in the assignment
-
+What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
 # Markdown Tutorial
 
 This is *emphasis*
