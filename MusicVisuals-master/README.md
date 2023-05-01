@@ -37,7 +37,7 @@ public void setup()
     }
 ```
 
-Then finally in the draw method, the variable and the method used to created the shapes are called and to this I used a switch statement:
+Then finally in the draw method, the variable and the method used to created the visuals are called and to this we used a switch statement:
 
 ```Java
 public void draw()
