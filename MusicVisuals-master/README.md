@@ -1,17 +1,11 @@
 # Music Visualiser Project
 
-Name:
-
 Student Number: C21416022 (Bakht Zia Khan), C21716601 (Emil Roy), C21388736 (Nicolas Ruth)
 
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+Assignment Brief: In this creative coding team project, you will work in a team of up to four, to create an abstract visual story of a song. You will use Processing, Minim or the Processing Sound library to create audio responsive elements and Github to manage your project. You will create a program that responds to the audio of a chosen song and generates a visually compelling and abstract representation of the song's mood, tempo, and structure. The program should showcase your teamwork, creativity, technical skills, and ability to effectively communicate emotions and narrative through visual elements.
+
 
 # Instructions
 Press F5 to see the Music Visual.
@@ -19,7 +13,7 @@ Press Space to start the Visual and press the numbers 1 to 5 to change visuals.
 # How it works
 We use the 
 # What I am most proud of in the assignment
-
+What we are most proud of is how we were able to work as a group and develop cool visualisations. We are especially proud of case 5
 # Markdown Tutorial
 
 This is *emphasis*
@@ -67,24 +61,12 @@ public void render()
 }
 ```
 
-This is an image using a relative URL:
+# Images
 
 ![An image](images/p8.png)
 
-This is an image using an absolute URL:
 
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
+# Youtube Video:
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
